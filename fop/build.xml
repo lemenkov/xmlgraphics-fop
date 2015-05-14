@@ -905,6 +905,7 @@ NOTE:
       bottom="Copyright ${year} The Apache Software Foundation. All Rights Reserved."
       overview="${src.java.dir}/org/apache/fop/overview.html"
       maxmemory="256M">
+      <arg value="-Xdoclint:none"/>
       <header><![CDATA[${name} ${version}]]></header>
       <footer><![CDATA[${name} ${version}]]></footer>
       <classpath>
