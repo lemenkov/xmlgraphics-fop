@@ -210,11 +210,7 @@ public final class Main {
      * @param args the command line parameters
      */
     public static void main(String[] args) {
-        if (checkDependencies()) {
-            startFOP(args);
-        } else {
-            startFOPWithDynamicClasspath(args);
-        }
+    	startFOP(args);
     }
 
 }
