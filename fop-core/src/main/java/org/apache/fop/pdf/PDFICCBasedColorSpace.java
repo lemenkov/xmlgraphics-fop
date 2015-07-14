@@ -22,7 +22,9 @@ package org.apache.fop.pdf;
 import java.awt.color.ColorSpace;
 import java.awt.color.ICC_Profile;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.FileInputStream;
 import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
@@ -138,7 +140,12 @@ public class PDFICCBasedColorSpace extends PDFObject implements PDFColorSpace {
     public static PDFICCStream setupsRGBColorProfile(PDFDocument pdfDoc) {
         ICC_Profile profile;
         PDFICCStream sRGBProfile = pdfDoc.getFactory().makePDFICCStream();
-        InputStream in = PDFDocument.class.getResourceAsStream("sRGB.icc");
+        InputStream in;
+        try {
+            in = new FileInputStream("/usr/share/color/icc/colord/sRGB.icc");
+        } catch (FileNotFoundException e) {
+            in = null;
+        }
         if (in != null) {
             try {
                 profile = ColorProfileUtil.getICC_Profile(in);
