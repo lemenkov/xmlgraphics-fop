@@ -1004,6 +1004,7 @@ NOTE:
       overview="${src.java.dir}/org/apache/fop/overview.html"
       maxmemory="256M">
       <arg value="-Xdoclint:none"/>
+      <arg value="--allow-script-in-comments"/>
       <header><![CDATA[${name} ${version}]]></header>
       <footer><![CDATA[${name} ${version}]]></footer>
       <classpath>
